@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+
+    <!-- FONT AWESOME -->
+    <script defer src="https://kit.fontawesome.com/5f9c487d12.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Clima</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+          <h3>Consultar clima de uma cidade:</h3>
+          <div class="form-input-container">
+            <input
+            type="text"
+            placeholder="Digite o nome da cidade"
+            id="city-input"
+          />
+          <button id="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          </div>
+        </div>
+        <div id="weather-data" class="hide">
+          <h2><i class="fa-solid fa-location-dot"></i> <span id="city"></span> <img id="country"></img></h2>
+          <p id="temperature"><span></span>&deg;C</p>
+          <div id="description-container">
+            <p id="description"></p>
+            <img id="weather-icon" src="" alt="Condições atuais">
+          </div>
+          <div id="details-container">
+            <p id="umidity">
+              <i class="fa-solid fa-droplet"></i> 
+              <span></span>
+            </p>
+            <p id="wind">
+              <i class="fa-solid fa-wind"></i>
+              <span></span>
+            </p>
+          </div>
+        </div>
+        <div id="error-message" class="hide">
+          <p>Não foi possível encontrar o clima de uma cidade com este nome.</p>
+        </div>
+        <div id="loader" class="hide">
+          <i class="fa-solid fa-spinner"></i>
+        </div>
+      </div>
+</body>
+</html>
