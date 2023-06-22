@@ -1,3 +1,5 @@
+import { Toast } from "./toast.js";
+
 const apiKey        = "9cb6656f235db73b81cdacbe466398a6";
 const apiCountryURL = "https://countryflagsapi.com/png/";
 const apiUnsplash   = "https://source.unsplash.com/1600x900/?";
@@ -44,16 +46,16 @@ const showErrorMessage = () => {
 };
 
 
-
 const showWeatherData = async (city) => {
 
 
   const data = await getWeatherData(city);
 
   if (data.cod === "404") {
-    showErrorMessage();
+    // showErrorMessage();
+    Toast.createToast("Ops! Algo deu errado!", "red")
     return;
-  }
+  } 
 
   cityElement.innerText = data.name;
   tempElement.innerText = parseInt(data.main.temp);
@@ -78,14 +80,17 @@ searchBtn.addEventListener("click", async (e) => {
   const city = cityInput.value;
 
   showWeatherData(city);
+
+  if(cityInput.value.length === 0){
+    Toast.createToast("Digite uma cidade!", "gray")
+  }else{
+    Toast.createToast('Busca encontrada!', 'green')
+  }
 });
 
 cityInput.addEventListener("keyup", (e) => {
   if (e.code === "Enter") {
     const city = e.target.value;
-
     showWeatherData(city);
   }
 });
-
-
